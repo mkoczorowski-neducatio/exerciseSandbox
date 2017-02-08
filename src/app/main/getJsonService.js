@@ -13,7 +13,8 @@
       return {
         getData:  function() {
           return deferred.promise;
-        }
+        },
+
       };
     }
 })();
