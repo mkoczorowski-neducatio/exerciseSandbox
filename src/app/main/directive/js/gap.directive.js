@@ -34,8 +34,8 @@
         });
 
         $scope.getData = function() {
+          $scope.Model.setInputValue(dataFromDirective.setValue($scope.inputValue));
           console.log($scope.Model);
-          dataFromDirective.setValue($scope.inputValue);
         }
 
       }

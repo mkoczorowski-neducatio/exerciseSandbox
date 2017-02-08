@@ -3,14 +3,15 @@
 
   angular
     .module('cartProject')
-    .factory('Item', ItemModel);
+    .service('Item', ItemModel);
 
   /** @ngInject */
   function ItemModel() {
 
-    var Item = function(id, answers) {
+    var Item = function(id, answer, inputValue) {
       this.id = id || 0;
-      this.answers = answers || "";
+      this.answer = answer || "";
+      this.inputValue = inputValue || "";
 
       this.setId = function(id) {
         this.id = id;
@@ -20,6 +21,10 @@
         this.answer = answer;
       };
 
+      this.setInputValue = function(inputValue) {
+        this.inputValue = inputValue;
+      };
+
       this.getId = function() {
         return this.id;
       };
@@ -27,6 +32,10 @@
       this.getAnswers = function() {
         return this.answer;
       };
+
+      this.getInputValue = function() {
+        return this.inputValue;
+      }
     }
     return Item;
   }

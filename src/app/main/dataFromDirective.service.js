@@ -10,6 +10,7 @@
       return {
         setValue: function(value) {
           this.value = value;
+          return this.value;
           console.log(this.value);
         },
         checkAnswers: function() {
