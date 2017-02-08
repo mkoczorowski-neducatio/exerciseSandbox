@@ -3,7 +3,7 @@
 
   angular
     .module('cartProject')
-    .factory('CartModel', ItemModel);
+    .factory('Item', ItemModel);
 
   /** @ngInject */
   function ItemModel() {

@@ -6,19 +6,22 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, CartModel, GetJson, ItemModel) {
+  function MainController($scope, Item, GetJson) {
     var promiseAnswers = GetJson.getData();
+    $scope.value = "";
 
   	promiseAnswers.then(function(data) {
   		$scope.answer = data;
       console.log($scope.answer);
 
       $scope.answer.forEach(function(answer) {
-      //console.log(answer.id);
+      console.log(answer.answers);
       });
     });
+
     var Model = new Item();
-    console.log(Model);
+  //  console.log(JSON.stringify(Model, null, 2));
+    Model.setAnswers($scope.value);
   }
 
 })();
