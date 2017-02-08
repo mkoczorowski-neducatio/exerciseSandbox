@@ -40,7 +40,7 @@
 
         <p>Phasellus a dui quam. Sed auctor <gap id="5"></gap> scelerisque lectus, facilisis tincidunt ligula laoreet in. Nulla non risus felis</p>
 
-        <button class="btn btn-success checkButton">Check</button>
+        <button class="btn btn-success checkButton" ng-click="checkAnswers()">Check</button> 
       </div>
     </div>
 
@@ -61,7 +61,8 @@
     <script src="app/main/directive/js/gap.directive.js"></script>
     <script src="app/main/main.controller.js"></script>
     <script src="app/main/item.model.js"></script>
-    <script src="app/main/getJsonService.js"></script>
+    <script src="app/main/getJsonService.service.js"></script>
+    <script src="app/main/dataFromDirective.service.js"></script>
     <script src="app/index.run.js"></script>
     <script src="app/index.constants.js"></script>
     <script src="app/index.config.js"></script>

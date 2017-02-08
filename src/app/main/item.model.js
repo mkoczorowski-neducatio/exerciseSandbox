@@ -3,7 +3,7 @@
 
   angular
     .module('cartProject')
-    .service('Item', ItemModel);
+    .factory('Item', ItemModel);
 
   /** @ngInject */
   function ItemModel() {
@@ -18,6 +18,14 @@
 
       this.setAnswers = function(answer) {
         this.answer = answer;
+      };
+
+      this.getId = function() {
+        return this.id;
+      };
+
+      this.getAnswers = function() {
+        return this.answer;
       };
     }
     return Item;

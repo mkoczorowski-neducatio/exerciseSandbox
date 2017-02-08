@@ -5,42 +5,39 @@
     .module('cartProject')
     .directive('gap', Gap);
 
-  function Gap(Item, GetJson) {
+  function Gap(Item, GetJson, dataFromDirective) {
     return {
       scope: {},
       restrict: 'E',
       templateUrl: 'app/main/directive/html/gap.directive.html',
       link: function($scope, element, attrs) {
-        //  console.log($scope);
-        //  console.log(attrs.id);
-        //  console.log(element);
+        $scope.answersId = [];
+        $scope.answersAnswer = [];
+        $scope.inputValue = "";
 
-        //  console.log(attrs.id);
-          $scope.answersId = [];
-          $scope.answersAnswer = [];
-          var Model = new Item();
-          $scope.Model = Model;
-          var promiseAnswers = GetJson.getData();
+        var promiseAnswers = GetJson.getData();
+        var Model = new Item();
+        $scope.Model = Model;
 
-          promiseAnswers.then(function(data) {
-            $scope.answer = data;
-            $scope.answer.forEach(function(answer) {
-            //  console.log(answer.id);
-              $scope.answersId.push(answer.id);
-              $scope.answersAnswer.push(answer.answers);
-            });
-            //  console.log($scope.answersId);
-            //  console.log($scope.answersAnswer);
-
-            if ($scope.answersId.indexOf(attrs.id) != -1) {
-              $scope.Model.setId($scope.answersId[attrs.id-1]);
-              $scope.Model.setAnswers($scope.answersAnswer[attrs.id-1]);
-
-            }
+        promiseAnswers.then(function(data) {
+          $scope.answer = data;
+          $scope.answer.forEach(function(answer) {
+            $scope.answersId.push(answer.id);
+            $scope.answersAnswer.push(answer.answers);
           });
-          $scope.getData = function() {
-            console.log($scope.Model);
+
+          if ($scope.answersId.indexOf(attrs.id) !== -1) {
+            $scope.Model.setId($scope.answersId[attrs.id-1]);
+            $scope.Model.setAnswers($scope.answersAnswer[attrs.id-1]);
           }
+
+        });
+
+        $scope.getData = function() {
+          console.log($scope.Model);
+          dataFromDirective.setValue($scope.inputValue);
+        }
+
       }
     };
   };
