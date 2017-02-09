@@ -22,7 +22,6 @@
         });
         return listOfObjects.getList();
       }
-
     }
   }
 })();
