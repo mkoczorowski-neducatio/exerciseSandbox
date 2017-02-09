@@ -16,7 +16,12 @@
         setDisplayOkIcon: function(displayOkIcon) {
           this.displayOkIcon = displayOkIcon;
           return this.displayOkIcon;
+        },
+        setDisplayWrongIcon: function(displayWrongIcon) {
+          this.displayWrongIcon = displayWrongIcon;
+          return this.displayWrongIcon;
         }
       }
+
     }
   })();

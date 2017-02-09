@@ -16,8 +16,8 @@
         $scope.inputValue = "";
 
         //icons visibility
-        $scope.displayOkIcon = true;
-        $scope.displayWrongIcon = true;
+        $scope.displayOkIcon = false;
+        $scope.displayWrongIcon = false;
 
         $scope.listOfObjects = [];
         var promiseAnswers = GetJson.getData();
@@ -25,6 +25,8 @@
         $scope.Model = Model;
 
         listOfObjects.addPeople($scope.Model);
+
+
         promiseAnswers.then(function(data) {
           $scope.answer = data;
 
@@ -37,10 +39,13 @@
             $scope.Model.setId($scope.answersId[attrs.id-1]);
             $scope.Model.setAnswers($scope.answersAnswer[attrs.id-1]);
           }
+
         });
+
         $scope.getDate = function() {
           $scope.Model.setInputValue(dataFromDirective.setValue($scope.inputValue));
           $scope.Model.setDisplayOkIcon(dataFromDirective.setDisplayOkIcon($scope.displayOkIcon));
+          $scope.Model.setDisplayWrongIcon(dataFromDirective.setDisplayWrongIcon($scope.displayWrongIcon));
         }
       }
     };
