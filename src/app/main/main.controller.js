@@ -8,11 +8,19 @@
   /** @ngInject */
   function MainController($scope, Item, GetJson, ExerciseModel) {
     $scope.showProgress = 0;
+
+    $scope.displayButtons = function() {
+      $scope.checkButtonVisibility = false;
+      $scope.getScoreButtonVisibility = false;
+    }
+
     $scope.checkAnswers = function() {
       console.log(ExerciseModel.evaluateItems());
     };
 
     $scope.reset = function() {
+      $scope.showProgress = 0;
+      $scope.displayButtons();
       console.log(ExerciseModel.resetValues());
     };
 
@@ -21,7 +29,8 @@
       console.log(ExerciseModel.getSum());
       $scope.showProgress = ExerciseModel.getSum();
       if ($scope.showProgress === 5) {
-        console.log("kuniec");
+        $scope.checkButtonVisibility = true;
+        $scope.getScoreButtonVisibility = true;
       }
     }
   }

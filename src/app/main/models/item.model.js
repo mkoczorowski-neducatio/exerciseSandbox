@@ -28,18 +28,6 @@
         this.inputValue = inputValue;
       },
 
-      getId: function() {
-        return this.id;
-      },
-
-      getAnswers: function() {
-        return this.answer;
-      },
-
-      getInputValue: function() {
-        return this.inputValue;
-      },
-
       setDisplayOkIcon: function(okIcon) {
         this.okIcon = okIcon;
       },
@@ -47,7 +35,6 @@
       setDisplayWrongIcon: function(wrongIcon) {
         this.wrongIcon = wrongIcon;
       }
-
     };
     return Item;
   }
