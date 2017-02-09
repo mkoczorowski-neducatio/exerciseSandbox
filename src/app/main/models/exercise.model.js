@@ -6,11 +6,18 @@
     .service('ExerciseModel', ExerciseModelService);
 
   /** @ngInject */
-  function ExerciseModelService(listOfObjects) {
-
+  function ExerciseModelService() {
+    var _list = [];
     return {
+      getList: function() {
+        return _list;
+      },
+      addPeople: function(model) {
+        return _list.push(model);
+        console.log(_list);
+      },
       evaluateItems: function() {
-        listOfObjects.getList().forEach(function(element) {
+        _list.forEach(function(element) {
           if (element.answer.indexOf(element.inputValue) !== -1) {
             //console.log(element.inputValue);
             element.displayOkIconValue = true;
@@ -20,7 +27,7 @@
             element.displayOkIconValue = false;
           }
         });
-        return listOfObjects.getList();
+        return _list;
       }
     }
   }

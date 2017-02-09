@@ -5,7 +5,7 @@
     .module('cartProject')
     .directive('gap', Gap);
 
-  function Gap(Item, GetJson, dataFromDirective, listOfObjects) {
+  function Gap(Item, GetJson, dataFromDirective, ExerciseModel) {
     return {
       scope: {},
       restrict: 'E',
@@ -19,13 +19,12 @@
         $scope.displayOkIcon = false;
         $scope.displayWrongIcon = false;
 
-        $scope.listOfObjects = [];
+        $scope.ExerciseModel = [];
         var promiseAnswers = GetJson.getData();
         var Model = new Item();
         $scope.Model = Model;
 
-        listOfObjects.addPeople($scope.Model);
-
+        ExerciseModel.addPeople($scope.Model);
 
         promiseAnswers.then(function(data) {
           $scope.answer = data;
