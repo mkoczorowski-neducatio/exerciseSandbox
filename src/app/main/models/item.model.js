@@ -16,7 +16,6 @@
       this.wrongIcon = wrongIcon || false;
     }
     Item.prototype = {
-
       setId: function(id) {
         this.id = id;
       },

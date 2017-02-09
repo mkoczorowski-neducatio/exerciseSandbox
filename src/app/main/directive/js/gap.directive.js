@@ -15,7 +15,6 @@
         $scope.answersAnswer = [];
         $scope.inputValue = "";
 
-
         $scope.ExerciseModel = [];
         var promiseAnswers = GetJson.getData();
         var Model = new Item();

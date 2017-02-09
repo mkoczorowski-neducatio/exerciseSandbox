@@ -10,6 +10,10 @@
     $scope.checkAnswers = function() {
       console.log(ExerciseModel.evaluateItems());
     }
+
+    $scope.reset = function() {
+      console.log(ExerciseModel.resetValues());
+    }
   }
 
 })();

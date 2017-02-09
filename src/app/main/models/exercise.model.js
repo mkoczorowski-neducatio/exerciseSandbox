@@ -19,12 +19,21 @@
       evaluateItems: function() {
         _list.forEach(function(element) {
           if (element.answer.indexOf(element.inputValue) !== -1) {
-            //console.log(element.inputValue);
             element.displayOkIconValue = true;
             element.displayWrongIconValue = false;
           } else {
             element.displayWrongIconValue = true;
             element.displayOkIconValue = false;
+          }
+        });
+        return _list;
+      },
+      resetValues: function() {
+        _list.forEach(function(element) {
+          if (element.answer.length > 0) {
+            element.inputValue = "";
+            element.displayOkIconValue = false;
+            element.displayWrongIconValue = false;
           }
         });
         return _list;
