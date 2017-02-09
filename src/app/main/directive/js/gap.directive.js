@@ -5,7 +5,7 @@
     .module('cartProject')
     .directive('gap', Gap);
 
-  function Gap(Item, GetJson, dataFromDirective, ExerciseModel) {
+  function Gap(Item, GetJson, ExerciseModel) {
     return {
       scope: {},
       restrict: 'E',
@@ -15,9 +15,6 @@
         $scope.answersAnswer = [];
         $scope.inputValue = "";
 
-        //icons visibility
-        $scope.displayOkIcon = false;
-        $scope.displayWrongIcon = false;
 
         $scope.ExerciseModel = [];
         var promiseAnswers = GetJson.getData();
@@ -40,12 +37,6 @@
           }
 
         });
-
-        $scope.getDate = function() {
-          $scope.Model.setInputValue(dataFromDirective.setValue($scope.inputValue));
-          $scope.Model.setDisplayOkIcon(dataFromDirective.setDisplayOkIcon($scope.displayOkIcon));
-          $scope.Model.setDisplayWrongIcon(dataFromDirective.setDisplayWrongIcon($scope.displayWrongIcon));
-        }
       }
     };
   };

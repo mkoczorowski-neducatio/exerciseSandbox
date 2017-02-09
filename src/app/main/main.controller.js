@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, Item, GetJson, dataFromDirective, ExerciseModel) {
+  function MainController($scope, Item, GetJson, ExerciseModel) {
     $scope.checkAnswers = function() {
       console.log(ExerciseModel.evaluateItems());
     }
