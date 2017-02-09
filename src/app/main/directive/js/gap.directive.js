@@ -14,6 +14,11 @@
         $scope.answersId = [];
         $scope.answersAnswer = [];
         $scope.inputValue = "";
+
+        //icons visibility
+        $scope.displayOkIcon = true;
+        $scope.displayWrongIcon = true;
+
         $scope.listOfObjects = [];
         var promiseAnswers = GetJson.getData();
         var Model = new Item();
@@ -35,6 +40,7 @@
         });
         $scope.getDate = function() {
           $scope.Model.setInputValue(dataFromDirective.setValue($scope.inputValue));
+          $scope.Model.setDisplayOkIcon(dataFromDirective.setDisplayOkIcon($scope.displayOkIcon));
         }
       }
     };

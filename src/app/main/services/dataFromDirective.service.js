@@ -11,10 +11,11 @@
         setValue: function(value) {
           this.value = value;
           return this.value;
-          console.log(this.value);
+          //console.log(this.value);
         },
-        checkAnswers: function() {
-          console.log($scope.inputValue);
+        setDisplayOkIcon: function(displayOkIcon) {
+          this.displayOkIcon = displayOkIcon;
+          return this.displayOkIcon;
         }
       }
     }

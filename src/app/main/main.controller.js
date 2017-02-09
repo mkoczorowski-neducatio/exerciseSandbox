@@ -6,9 +6,10 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, Item, GetJson, dataFromDirective, listOfObjects) {
+  function MainController($scope, Item, GetJson, dataFromDirective, listOfObjects, ExerciseModel) {
     $scope.checkAnswers = function() {
-      console.log(listOfObjects.getList());
+      //console.log(listOfObjects.getList());
+      console.log(ExerciseModel.evaluateItems());
     }
     //var Model = new Item();
     //console.log(Model);
