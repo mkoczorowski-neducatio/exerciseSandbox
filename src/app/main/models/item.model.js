@@ -8,10 +8,9 @@
   /** @ngInject */
   function ItemModel() {
 
-    var Item = function(id, answer, inputValue) {
+    var Item = function(id, answer) {
       this.id = id || 0;
       this.answer = answer || "";
-      this.inputValue = inputValue || "";
     }
 
     Item.prototype = {

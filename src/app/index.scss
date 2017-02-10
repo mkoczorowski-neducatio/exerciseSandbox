@@ -44,22 +44,12 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-.heading {
-  text-transform: uppercase;
-  font-weight:700;
-  text-align: center;
-  padding-bottom: 15px;
-  letter-spacing: 2px;
+.iconWrong {
+  color:red;
 }
 
-p {
-  font-style: italic;
-  color:#393e44;
-  font-weight: 700;
-}
-
-.buttons {
-  padding: 20px 0;
+.iconOk {
+  color:green;
 }
 
 .inner {
@@ -75,6 +65,20 @@ p {
   -webkit-box-shadow: 1px 1px 15px 1px rgba(0,0,0,0.75);
   -moz-box-shadow: 1px 1px 15px 1px rgba(0,0,0,0.75);
   box-shadow: 1px 1px 15px 1px rgba(0,0,0,0.75);
+
+  .heading {
+    text-transform: uppercase;
+    font-weight:700;
+    text-align: center;
+    padding-bottom: 15px;
+    letter-spacing: 2px;
+  }
+
+  p {
+    font-style: italic;
+    color:#393e44;
+    font-weight: 700;
+  }
 
   .directiveInput {
     outline:none;
@@ -94,6 +98,10 @@ p {
       background: #efefef;
       color:#2f2f2f;
     }
+  }
+
+  .buttons {
+    padding: 20px 0;
   }
 
   .buttonStyle {
@@ -117,13 +125,6 @@ p {
 
 }
 
-.iconWrong {
-  color:red;
-}
-
-.iconOk {
-  color:green;
-}
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject

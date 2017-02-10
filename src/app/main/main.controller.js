@@ -15,18 +15,18 @@
     }
 
     $scope.checkAnswers = function() {
-      console.log(ExerciseModel.evaluateItems());
+      ExerciseModel.evaluateItems();
     };
 
     $scope.reset = function() {
       $scope.showProgress = 0;
       $scope.displayButtons();
-      console.log(ExerciseModel.resetValues());
+      ExerciseModel.resetValues();
     };
 
     $scope.getScore = function() {
-      console.log(ExerciseModel.getScore());
-      console.log(ExerciseModel.getSum());
+      ExerciseModel.getScore();
+      ExerciseModel.getSum();
       $scope.showProgress = ExerciseModel.getSum();
       if ($scope.showProgress === 5) {
         $scope.checkButtonVisibility = true;

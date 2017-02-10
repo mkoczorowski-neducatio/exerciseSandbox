@@ -32,7 +32,6 @@
             $scope.Model.setId($scope.answersId[attrs.id-1]);
             $scope.Model.setAnswers($scope.answersAnswer[attrs.id-1]);
           }
-
         });
       }
     };

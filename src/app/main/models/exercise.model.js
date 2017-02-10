@@ -9,8 +9,8 @@
   function ExerciseModelService() {
     var _list = [];
     var sum = 0;
-    return {
 
+    return {
       getList: function() {
         return _list;
       },
@@ -21,7 +21,6 @@
 
       addPeople: function(model) {
         return _list.push(model);
-        console.log(_list);
       },
 
       evaluateItems: function() {
@@ -57,7 +56,6 @@
         }, this);
         return _list;
       }
-
     }
   }
 })();
