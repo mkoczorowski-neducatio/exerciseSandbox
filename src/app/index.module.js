@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('cartProject', ['toastr']);
+    .module('cartProject', ['toastr', 'ui.router']);
 
 })();
