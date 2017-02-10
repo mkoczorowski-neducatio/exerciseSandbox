@@ -121,6 +121,14 @@ body {
     &:disabled {
       background: #bababa;
     }
+    a {
+      background: #2f2f2f;
+      color: #efefef;
+      text-decoration: none;
+      &:hover {
+        background: #212223;
+      }
+    }
   }
 
 }

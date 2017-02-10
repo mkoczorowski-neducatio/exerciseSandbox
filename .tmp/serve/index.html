@@ -25,7 +25,20 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div ui-view></div>
+    <div class="row inner">
+
+      <h2 class="heading">uzupełnij tekst brakującymi wyrazami</h2>
+      <div ui-view></div>
+      <div class="text-center buttons">
+        <button class="buttonStyle" ng-click="checkAnswers()" ng-disabled="checkButtonVisibility">Check</button>
+        <button class="buttonStyle" ng-click="reset()">Reset</button>
+        <button class="buttonStyle" ng-click="getScore()" ng-disabled="getScoreButtonVisibility">Get score: {{showProgress}}/5</button>
+      </div>
+      <div class="text-center">
+        <a ui-sref="task1"><button class="buttonStyle">Previous task</button></a>
+        <a ui-sref="task2"><button class="buttonStyle">Next task</button></a>
+      </div>
+    </div>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
