@@ -30,8 +30,8 @@
             element.displayOkIconValue = true;
             element.displayWrongIconValue = false;
           } else {
-            element.displayWrongIconValue = true;
             element.displayOkIconValue = false;
+            element.displayWrongIconValue = true;
           }
         });
         return _list;

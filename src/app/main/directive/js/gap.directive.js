@@ -13,9 +13,7 @@
       link: function($scope, element, attrs) {
         $scope.answersId = [];
         $scope.answersAnswer = [];
-        $scope.inputValue = "";
 
-        $scope.ExerciseModel = [];
         var promiseAnswers = GetJson.getData();
         var Model = new Item();
         $scope.Model = Model;

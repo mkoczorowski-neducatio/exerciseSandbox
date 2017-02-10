@@ -8,13 +8,12 @@
   /** @ngInject */
   function ItemModel() {
 
-    var Item = function(id, answer, inputValue, okIcon, wrongIcon) {
+    var Item = function(id, answer, inputValue) {
       this.id = id || 0;
       this.answer = answer || "";
       this.inputValue = inputValue || "";
-      this.okIcon = okIcon || false;
-      this.wrongIcon = wrongIcon || false;
     }
+
     Item.prototype = {
       setId: function(id) {
         this.id = id;
@@ -22,18 +21,6 @@
 
       setAnswers: function(answer) {
         this.answer = answer;
-      },
-
-      setInputValue: function(inputValue) {
-        this.inputValue = inputValue;
-      },
-
-      setDisplayOkIcon: function(okIcon) {
-        this.okIcon = okIcon;
-      },
-
-      setDisplayWrongIcon: function(wrongIcon) {
-        this.wrongIcon = wrongIcon;
       }
     };
     return Item;
