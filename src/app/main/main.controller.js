@@ -25,9 +25,10 @@
     };
 
     $scope.getScore = function() {
-      ExerciseModel.getScore();
-      ExerciseModel.getSum();
-      $scope.showProgress = ExerciseModel.getSum();
+      var sum = ExerciseModel.getScore();
+      //ExerciseModel.getSum();
+      console.log();
+      $scope.showProgress = sum;
       if ($scope.showProgress === 5) {
         $scope.checkButtonVisibility = true;
         $scope.getScoreButtonVisibility = true;
