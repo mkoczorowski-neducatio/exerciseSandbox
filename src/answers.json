@@ -1,22 +1,29 @@
 [
   {
     "id": "1",
-    "answers": ["a1", "a2", "a3", "a4", "a5"]
+    "type": "text",
+    "answers": ["a1", "a2"]
   },
   {
     "id": "2",
-    "answers": ["b1", "b2", "b3", "b4", "b5"]
+    "type": "text",
+    "answers": ["b1", "b2"]
   },
   {
     "id": "3",
-    "answers": ["c1", "c2", "c3", "c4", "c5"]
+    "type": "select",
+    "answers": ["c1", "c2"],
+    "options": ["a1", "a2", "b1", "b2", "c1", "c2", "d1", "d2", "e1", "e2"]
   },
   {
     "id": "4",
-    "answers": ["d1", "d2", "d3", "d4", "d5"]
+    "type": "text",
+    "answers": ["d1", "d2"]
   },
   {
-    "id": "5",
-    "answers": ["e1", "e2", "e3", "e4", "e5"]
+    "id": "6",
+    "type": "select",
+    "answers": ["e1", "e2"],
+    "options": ["a1", "a2", "b1", "b2", "c1", "c2", "d1", "d2", "e1", "e2"]
   }
 ]

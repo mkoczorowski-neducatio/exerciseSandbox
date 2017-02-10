@@ -17,14 +17,15 @@
         $scope.Model = Model;
 
         ExerciseModel.addItem(Model);
-
         GetJson.getData().then(function(data) {
 
           data.forEach(function(answer) {
             if (Model.id === answer.id) {
-              Model.setAnswers(answer.answers)
+              Model.setOptions(answer.options);
+              Model.setAnswers(answer.answers);
+              Model.setInputType(answer.type);
             }
-          })
+          });
 
         });
       }

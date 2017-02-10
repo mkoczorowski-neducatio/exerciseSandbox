@@ -15,7 +15,7 @@
     }
 
     $scope.checkAnswers = function() {
-      ExerciseModel.evaluateItems();
+      console.log(ExerciseModel.evaluateItems());
     };
 
     $scope.reset = function() {
