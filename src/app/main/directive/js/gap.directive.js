@@ -19,7 +19,7 @@
         ExerciseModel.addItem(Model);
 
         //template 1
-        GetJson.getData().then(function(data) {
+        GetJson.getAnswers().then(function(data) {
           data.forEach(function(answer) {
             if (Model.id === answer.id) {
               Model.setOptions(answer.options);
