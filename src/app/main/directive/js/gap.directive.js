@@ -18,17 +18,13 @@
 
         ExerciseModel.addItem(Model);
 
-        //template 1
-        GetJson.getAnswers().then(function(data) {
-          data.forEach(function(answer) {
-            if (Model.id === answer.id) {
-              Model.setOptions(answer.options);
-              Model.setAnswers(answer.answers);
-              Model.setInputType(answer.type);
-            }
-          });
+        GetJson.getAnswers().forEach(function(answer) {
+          if (Model.id === answer.id) {
+            Model.setOptions(answer.options);
+            Model.setAnswers(answer.answers);
+            Model.setInputType(answer.type);
+          }
         });
-
       }
     };
   };

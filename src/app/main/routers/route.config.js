@@ -16,6 +16,6 @@
             }
           }
         });
-      $urlRouterProvider.otherwise('/task/1');
+      //$urlRouterProvider.otherwise('/task/1');
     });
 })();

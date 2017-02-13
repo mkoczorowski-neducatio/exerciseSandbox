@@ -3,9 +3,10 @@
 
   angular
     .module('cartProject')
-    .service('GetJson', GetJsonService);
+    .service('GetJson', GetJson);
 
-    function GetJsonService($http, $q) {
+    /** @ngInject */
+    function GetJson($http, $q) {
       var _data = null;
       return {
         loadJson: function(id) {
@@ -17,7 +18,8 @@
           return _data.content;
         },
         getAnswers:  function() {
-          return $q.when(_data.answers);
+          console.log('not mocked');
+          return _data.answers;
         }
       };
     }
