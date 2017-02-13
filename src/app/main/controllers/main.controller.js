@@ -15,7 +15,7 @@
     }
 
     $scope.checkAnswers = function() {
-      console.log(ExerciseModel.evaluateItems());
+      ExerciseModel.evaluateItems();
     };
 
     $scope.reset = function() {
@@ -26,8 +26,6 @@
 
     $scope.getScore = function() {
       var sum = ExerciseModel.getScore();
-      //ExerciseModel.getSum();
-      console.log();
       $scope.showProgress = sum;
       if ($scope.showProgress === 5) {
         $scope.checkButtonVisibility = true;

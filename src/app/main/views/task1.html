@@ -14,10 +14,9 @@
 <div class="text-center buttons">
   <button class="buttonStyle" ng-click="checkAnswers()" ng-disabled="checkButtonVisibility">Check</button>
   <button class="buttonStyle" ng-click="reset()">Reset</button>
-  <button class="buttonStyle" ng-click="getScore()" ng-disabled="getScoreButtonVisibility">Get score: {{showProgress}}/5</button>
+  <button class="buttonStyle" ng-click="getScore()" ng-disabled="getScoreButtonVisibility">Get score: {{showProgress}}</button>
 </div>
 
-<div class="text-center">
-  <a ui-sref="task1" ng-click="loadTemplate()"><button class="buttonStyle">Previous task</button></a>
-  <a ui-sref="task2"><button class="buttonStyle">Next task</button></a>
+<div class="text-right">
+  <a ui-sref="task2" ng-click="reset()"><button class="buttonStyle">Next task</button></a>
 </div>
