@@ -3,9 +3,9 @@
 
   angular
     .module('cartProject')
-    .directive('gap', Gap);
+    .directive('gap2', Gap2);
 
-  function Gap(Item, GetJson, ExerciseModel) {
+  function Gap2(Item, GetJson, ExerciseModel) {
     return {
       scope: {},
       restrict: 'E',
@@ -19,7 +19,7 @@
         ExerciseModel.addItem(Model);
 
         //template 1
-        GetJson.getData().then(function(data) {
+        GetJson.getData2().then(function(data) {
           data.forEach(function(answer) {
             if (Model.id === answer.id) {
               Model.setOptions(answer.options);
