@@ -45,8 +45,6 @@
     $scope.loadDataFromLocalStorage = function() {
       for (var key in $localStorage.ob) {
         ExerciseModel.catchInputValue($localStorage.ob[key]);
-        console.log($localStorage.ob[key]);
-        console.log(ExerciseModel.getList());
       }
     };
 

@@ -7,9 +7,8 @@
 
   /** @ngInject */
   function ExerciseModelService() {
-    var _list = [];
+    var _list = [], _localStorageArr = [];
     var sum = 0;
-    var inputValue;
 
     return {
       getList: function() {
@@ -21,7 +20,10 @@
       },
 
       catchInputValue: function(inputValue) {
-        return inputValue;
+        _localStorageArr.push(inputValue);
+        console.log(_localStorageArr);
+        return _localStorageArr;
+        _localStorageArr = [];
       },
 
       addItem: function(model) {
