@@ -17,7 +17,7 @@
         $scope.Model = Model;
 
         ExerciseModel.addItem(Model);
-
+        ExerciseModel.catchInputValue(Model);
         GetJson.getAnswers().forEach(function(answer) {
           if (Model.id === answer.id) {
             Model.setOptions(answer.options);

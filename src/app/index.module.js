@@ -2,6 +2,5 @@
   'use strict';
 
   angular
-    .module('cartProject', ['toastr', 'ui.router']);
-
+    .module('cartProject', ['toastr', 'ui.router', 'ngStorage']);
 })();

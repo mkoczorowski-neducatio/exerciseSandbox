@@ -9,6 +9,7 @@
   function ExerciseModelService() {
     var _list = [];
     var sum = 0;
+    var inputValue;
 
     return {
       getList: function() {
@@ -17,6 +18,10 @@
 
       getSum:function() {
         return sum;
+      },
+
+      catchInputValue: function(inputValue) {
+        return inputValue;
       },
 
       addItem: function(model) {
@@ -38,7 +43,11 @@
       },
 
       getScore: function() {
+        _list.forEach(function(element) {
+          console.log(element);
+        });
         return _list.reduce(function(sum, element) {
+
           return sum + ((element.isCorrect) ? 1 : 0);
         }, 0);
       }

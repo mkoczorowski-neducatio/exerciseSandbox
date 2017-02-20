@@ -1,3 +1,4 @@
+
 <div class="content"></div>
 
 <div class="text-center buttons">
@@ -6,6 +7,5 @@
   <button class="buttonStyle" ng-click="getScore()" ng-disabled="getScoreButtonVisibility">Get score: {{showProgress}}</button>
 </div>
 
-<div class="text-right">
-  <a ui-sref="task2" ng-click="reset()"><button class="buttonStyle">Next task</button></a>
-</div>
+<button ng-click="rmLocalStorageData()" class="btn btn-info">Remove arr</button>
+<button ng-click="loadDataFromLocalStorage()" class="btn btn-success">Load data</button>

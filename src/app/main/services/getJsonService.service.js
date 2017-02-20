@@ -17,8 +17,7 @@
         getContent: function() {
           return _data.content;
         },
-        getAnswers:  function() {
-          console.log('not mocked');
+        getAnswers: function() {
           return _data.answers;
         }
       };

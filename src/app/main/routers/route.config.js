@@ -10,12 +10,12 @@
           templateUrl: 'app/main/views/task1.html',
           controller: 'MainController',
           resolve: {
-            'ExerciseJSON': function(GetJson, $stateParams) {
+            ExerciseJSON: function(GetJson, $stateParams) {
               console.log("resolving");
               return GetJson.loadJson($stateParams.id);
             }
           }
         });
-      //$urlRouterProvider.otherwise('/task/1');
+       $urlRouterProvider.otherwise('/task/1');
     });
 })();
