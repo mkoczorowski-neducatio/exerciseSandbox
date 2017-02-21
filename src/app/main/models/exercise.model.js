@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function ExerciseModelService() {
-    var _list = [], _localStorageValues = [], _localStorageKeys = [], _addedClasses = [];
+    var _list = [];
     var sum = 0;
 
     return {
@@ -17,27 +17,6 @@
 
       getSum:function() {
         return sum;
-      },
-
-      setLocalStorageData: function(key, localStorage) {
-        _localStorageKeys.push(key);
-        _localStorageValues.push(localStorage);
-      },
-
-      getLocalStorageValues: function() {
-        return _localStorageValues;
-      },
-
-      getLocalStorageKeys: function() {
-        return _localStorageKeys;
-      },
-
-      setListOfClasses: function(classNameArr) {
-        _addedClasses = classNameArr;
-      },
-
-      getListOfClasses: function() {
-        return _addedClasses;
       },
 
       addItem: function(model) {

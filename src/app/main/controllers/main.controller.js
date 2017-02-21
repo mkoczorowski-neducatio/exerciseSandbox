@@ -14,22 +14,32 @@
     });
 
     $scope.classNameValue = "";
+    $scope.showProgress = 0;
+    console.log($localStorage.ob);
+
+    angular.element(".content").html(GetJson.getContent());
+    $compile(angular.element(".content").contents())($scope);
+
+    for (var key in $localStorage.ob) {
+      LocalStorage.setLocalStorageData(key, $localStorage.ob[key]);
+    }
+
+    LocalStorage.setListOfClasses($localStorage.addedClassNames);
 
     $scope.addClassName = function() {
       $localStorage.addedClassNames.push($scope.classNameValue);
       console.log($localStorage.addedClassNames);
-    }
-    LocalStorage.setListOfClasses($localStorage.addedClassNames);
+    };
 
     $scope.rmClassList = function() {
       delete $localStorage.addedClassNames;
       $localStorage.addedClassNames = [];
       console.log($localStorage.addedClassNames);
-    }
+    };
 
     $scope.displayClassList = function() {
       console.log($localStorage.addedClassNames);
-    }
+    };
 
     $scope.rmLocalStorageData = function() {
       delete $localStorage.arr;
@@ -37,16 +47,12 @@
       delete $localStorage.ob;
       $localStorage.ob = {};
       console.log($localStorage.arr);
-    }
-
-    $scope.showProgress = 0;
+    };
 
     $scope.displayButtons = function() {
       $scope.checkButtonVisibility = false;
       $scope.getScoreButtonVisibility = false;
     };
-
-    console.log($localStorage.ob);
 
     $scope.checkAnswers = function() {
       ExerciseModel.evaluateItems();
@@ -62,18 +68,11 @@
       console.log($localStorage.ob);
     };
 
-    for (var key in $localStorage.ob) {
-      LocalStorage.setLocalStorageData(key, $localStorage.ob[key]);
-    }
-
     $scope.reset = function() {
       $scope.showProgress = 0;
       $scope.displayButtons();
       ExerciseModel.resetValues();
     };
-
-    angular.element(".content").html(GetJson.getContent());
-    $compile(angular.element(".content").contents())($scope);
 
     $scope.getScore = function() {
       var sum = ExerciseModel.getScore();
