@@ -19,15 +19,14 @@
         //get keys and values from associated table
         var storageValues = ExerciseModel.getLocalStorageValues();
         var storageKeys = ExerciseModel.getLocalStorageKeys();
-
         //loop via array, which contains keys from localStorage data and compare with Model.id
         for (var i=0; i<storageKeys.length; i++) {
           if (Model.id == storageKeys[i]) {
-            console.log(storageValues[i]);
             // if the same, set value as inputValue in Model
             $scope.Model.inputValue = storageValues[i];
           }
         }
+
         GetJson.getAnswers().forEach(function(answer) {
           if (Model.id === answer.id) {
             Model.setOptions(answer.options);
@@ -35,6 +34,21 @@
             Model.setInputType(answer.type);
           }
         });
+
+        var arr = [];
+        var arr2 = [];
+        for (var key in Model.options) {
+          arr.push(Model.options[key]);
+        }
+
+        var localStorageData = ExerciseModel.getListOfClasses();
+        console.log(localStorageData);
+        arr2 = arr.concat(localStorageData);
+        console.log(arr2);
+        Model.options = arr2;
+        // arr.push(Model.inputValue);
+        // Model.options = arr;
+        //console.log(Model);
       }
     };
   };

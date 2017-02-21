@@ -9,8 +9,27 @@
   function MainController($scope, $localStorage, Item, GetJson, ExerciseModel, $compile) {
     $scope.$storage = $localStorage.$default({
       arr: [],
-      ob: {}
+      ob: {},
+      addedClassNames: []
     });
+
+    $scope.classNameValue = "";
+
+    $scope.addClassName = function() {
+      $localStorage.addedClassNames.push($scope.classNameValue);
+      console.log($localStorage.addedClassNames);
+    }
+    ExerciseModel.setListOfClasses($localStorage.addedClassNames);
+
+    $scope.rmClassList = function() {
+      delete $localStorage.addedClassNames;
+      $localStorage.addedClassNames = [];
+      console.log($localStorage.addedClassNames);
+    }
+
+    $scope.displayClassList = function() {
+      console.log($localStorage.addedClassNames);
+    }
 
     $scope.rmLocalStorageData = function() {
       delete $localStorage.arr;
@@ -19,6 +38,7 @@
       $localStorage.ob = {};
       console.log($localStorage.arr);
     }
+
     $scope.showProgress = 0;
 
     $scope.displayButtons = function() {
