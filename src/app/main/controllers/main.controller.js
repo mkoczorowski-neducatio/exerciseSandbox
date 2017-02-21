@@ -42,11 +42,9 @@
       console.log($localStorage.ob);
     };
 
-    $scope.loadDataFromLocalStorage = function() {
-      for (var key in $localStorage.ob) {
-        ExerciseModel.catchInputValue($localStorage.ob[key]);
-      }
-    };
+    for (var key in $localStorage.ob) {
+      ExerciseModel.setLocalStorageData(key, $localStorage.ob[key]);
+    }
 
     $scope.reset = function() {
       $scope.showProgress = 0;
