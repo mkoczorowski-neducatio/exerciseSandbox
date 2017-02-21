@@ -6,12 +6,16 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, $localStorage, Item, GetJson, ExerciseModel, LocalStorage, $compile) {
+  function MainController($scope, $localStorage, Item, GetJson, ExerciseModel, LocalStorage, $compile, $stateParams) {
     $scope.$storage = $localStorage.$default({
       arr: [],
       ob: {},
-      addedClassNames: []
+      addedClassNames: [],
+      eachViews: []
     });
+
+    $localStorage.eachViews[$stateParams.id] = $localStorage.ob;
+    console.log($localStorage.eachViews);
 
     $scope.classNameValue = "";
     $scope.showProgress = 0;
@@ -35,6 +39,8 @@
       delete $localStorage.addedClassNames;
       $localStorage.addedClassNames = [];
       console.log($localStorage.addedClassNames);
+      delete $localStorage.eachViews;
+      $localStorage.eachViews = [];
     };
 
     $scope.displayClassList = function() {
