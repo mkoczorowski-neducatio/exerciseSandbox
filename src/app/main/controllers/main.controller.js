@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, $localStorage, Item, GetJson, ExerciseModel, $compile) {
+  function MainController($scope, $localStorage, Item, GetJson, ExerciseModel, LocalStorage, $compile) {
     $scope.$storage = $localStorage.$default({
       arr: [],
       ob: {},
@@ -19,7 +19,7 @@
       $localStorage.addedClassNames.push($scope.classNameValue);
       console.log($localStorage.addedClassNames);
     }
-    ExerciseModel.setListOfClasses($localStorage.addedClassNames);
+    LocalStorage.setListOfClasses($localStorage.addedClassNames);
 
     $scope.rmClassList = function() {
       delete $localStorage.addedClassNames;
@@ -63,7 +63,7 @@
     };
 
     for (var key in $localStorage.ob) {
-      ExerciseModel.setLocalStorageData(key, $localStorage.ob[key]);
+      LocalStorage.setLocalStorageData(key, $localStorage.ob[key]);
     }
 
     $scope.reset = function() {

@@ -5,7 +5,7 @@
     .module('cartProject')
     .directive('gap', Gap);
 
-  function Gap(Item, GetJson, ExerciseModel) {
+  function Gap(Item, GetJson, ExerciseModel, LocalStorage) {
     return {
       scope: {},
       restrict: 'E',
@@ -17,8 +17,8 @@
         ExerciseModel.addItem(Model);
 
         //get keys and values from associated table
-        var storageValues = ExerciseModel.getLocalStorageValues();
-        var storageKeys = ExerciseModel.getLocalStorageKeys();
+        var storageValues = LocalStorage.getLocalStorageValues();
+        var storageKeys = LocalStorage.getLocalStorageKeys();
         //loop via array, which contains keys from localStorage data and compare with Model.id
         for (var i=0; i<storageKeys.length; i++) {
           if (Model.id == storageKeys[i]) {
@@ -41,7 +41,7 @@
           arr.push(Model.options[key]);
         }
 
-        var localStorageData = ExerciseModel.getListOfClasses();
+        var localStorageData = LocalStorage.getListOfClasses();
         console.log(localStorageData);
         arr2 = arr.concat(localStorageData);
         console.log(arr2);
