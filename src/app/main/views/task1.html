@@ -6,12 +6,13 @@
   <button class="buttonStyle" ng-click="getScore()" ng-disabled="getScoreButtonVisibility">Get score: {{showProgress}}</button>
 </div>
 
-<a ui-sref="task({id: 1})"><button class="buttonStyle">View 1</button></a>
-<a ui-sref="task({id: 2})"><button class="buttonStyle">View 2</button></a>
-<a ui-sref="task({id: 3})"><button class="buttonStyle">View 3</button></a>
+<a ng-click="rmLocalStorageData()" ui-sref="task({id: 1})"><button class="buttonStyle">View 1</button></a>
+<a ng-click="rmLocalStorageData()" ui-sref="task({id: 2})"><button class="buttonStyle">View 2</button></a>
+<a ng-click="rmLocalStorageData()" ui-sref="task({id: 3})"><button class="buttonStyle">View 3</button></a>
 
 <button ng-click="rmLocalStorageData()" class="btn btn-info">Remove arr</button>
 <input type="text" class="directiveInput" ng-model="classNameValue">
 <button class="btn btn-success" ng-click="addClassName()">Add new class name</button>
 <button class="btn btn-warning" ng-click="displayClassList()">Display list</button>
 <button class="btn btn-danger" ng-click="rmClassList()">Remove list</button>
+<button class="btn btn-danger" ng-click="rmEachView()">Remove eachViews list</button>

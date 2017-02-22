@@ -9,7 +9,8 @@
   function LocalStorageService() {
     var _localStorageValues = [],
         _localStorageKeys = [],
-        _addedClasses = [];
+        _addedClasses = [],
+        _eachViewStorage = [];
 
     return {
       setLocalStorageData: function(key, localStorage) {
@@ -31,6 +32,15 @@
 
       getListOfClasses: function() {
         return _addedClasses;
+      },
+
+      setEachViewStorage: function(eachView) {
+        _eachViewStorage = eachView;
+        console.log(_eachViewStorage);
+      },
+
+      getEachViewStorage: function() {
+        return _eachViewStorage;
       }
     }
   }
