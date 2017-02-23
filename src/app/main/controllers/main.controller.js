@@ -8,10 +8,10 @@
   /** @ngInject */
   function MainController($scope, $localStorage, Item, GetJson, ExerciseModel, LocalStorage, $compile, $stateParams) {
     $scope.$storage = $localStorage.$default({
-      arr: [],
-      ob: {},
       addedClassNames: [],
-      eachViews: []
+      eachViews: [],
+      ob: {},
+      save: []
     });
 
 
@@ -21,29 +21,18 @@
     angular.element(".content").html(GetJson.getContent());
     $compile(angular.element(".content").contents())($scope);
 
-    for (var key in $localStorage.ob) {
-      LocalStorage.setLocalStorageData(key, $localStorage.ob[key]);
-    }
 
     LocalStorage.setListOfClasses($localStorage.addedClassNames);
 
-    $localStorage.eachViews[$stateParams.id] = $localStorage.ob;
-
+    //console.log($localStorage.eachViews[$stateParams.id]);
+    for (var key in $localStorage.ob) {
+      LocalStorage.setLocalStorageData(key, $localStorage.ob[key]);
+    }
     LocalStorage.setEachViewStorage($localStorage.eachViews);
 
-    $scope.rmEachView = function() {
-      delete $localStorage.eachViews;
-      $localStorage.eachViews = [];
-    };
-
+    // <-------------------------- list of functions ------------------------->
     $scope.addClassName = function() {
       $localStorage.addedClassNames.push($scope.classNameValue);
-      console.log($localStorage.addedClassNames);
-    };
-
-    $scope.rmClassList = function() {
-      delete $localStorage.addedClassNames;
-      $localStorage.addedClassNames = [];
       console.log($localStorage.addedClassNames);
     };
 
@@ -53,11 +42,11 @@
     };
 
     $scope.rmLocalStorageData = function() {
-      delete $localStorage.arr;
-      $localStorage.arr = [];
       delete $localStorage.ob;
       $localStorage.ob = {};
-      console.log($localStorage.arr);
+
+      delete $localStorage.eachViews;
+      $localStorage.eachViews = [];
     };
 
     $scope.displayButtons = function() {
@@ -69,16 +58,12 @@
       console.log($localStorage.eachViews);
       console.log($localStorage.ob);
       ExerciseModel.evaluateItems();
-      $localStorage.arr.forEach(function(element) {
-        if (element) {
-          $localStorage.arr.splice(0,3);
-        }
-      });
 
+      $localStorage.save = $localStorage.ob;
+      $localStorage.eachViews[$stateParams.id] = $localStorage.save;
       ExerciseModel.getList().forEach(function(element) {
-        $localStorage.ob[element.id] = element.inputValue;
+        $localStorage.save[element.id] = element.inputValue;
       });
-      //console.log($localStorage.ob);
     };
 
     $scope.reset = function() {
