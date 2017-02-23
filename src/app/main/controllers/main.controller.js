@@ -8,19 +8,17 @@
   /** @ngInject */
   function MainController($scope, $localStorage, Item, GetJson, ExerciseModel, LocalStorage, $compile, $stateParams) {
     $scope.$storage = $localStorage.$default({
-      addedClassNames: [],
+      addedClassNames: "",
       eachViews: [],
       ob: {},
       save: []
     });
 
-    $scope.classNameValue = "";
     $scope.showProgress = 0;
 
     angular.element(".content").html(GetJson.getContent());
     $compile(angular.element(".content").contents())($scope);
 
-    LocalStorage.setListOfClasses($localStorage.addedClassNames);
     LocalStorage.setEachViewStorage($localStorage.eachViews);
 
     for (var key in $localStorage.ob) {
@@ -28,8 +26,9 @@
     }
 
     // <-------------------------- list of functions ------------------------->
-    $scope.addClassName = function() {
-      $localStorage.addedClassNames.push($scope.classNameValue);
+    $scope.addClassName = function(classNameValue) {
+      $localStorage.addedClassNames = classNameValue;
+      $scope.$broadcast("addToOptions", $localStorage.addedClassNames);
     };
 
     $scope.rmLocalStorageData = function() {
@@ -37,6 +36,8 @@
       $localStorage.ob = {};
       delete $localStorage.eachViews;
       $localStorage.eachViews = [];
+      delete $localStorage.addedClassNames;
+      $localStorage.addedClassNames = [];
     };
 
     $scope.displayButtons = function() {
@@ -69,5 +70,6 @@
         $scope.getScoreButtonVisibility = true;
       }
     }
+
   }
 })();

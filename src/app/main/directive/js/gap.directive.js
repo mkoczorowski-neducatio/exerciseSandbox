@@ -5,7 +5,7 @@
     .module('cartProject')
     .directive('gap', Gap);
 
-  function Gap(Item, GetJson, ExerciseModel, LocalStorage, $stateParams) {
+  function Gap(Item, GetJson, ExerciseModel, LocalStorage, $stateParams, $localStorage) {
     return {
       scope: {},
       restrict: 'E',
@@ -16,13 +16,14 @@
         $scope.Model = Model;
         ExerciseModel.addItem(Model);
 
+        $scope.$storage = $localStorage.$default({
+          addClass: []
+        });
+
         var storageValues = LocalStorage.getLocalStorageValues();
         var storageKeys = LocalStorage.getLocalStorageKeys();
         var eachViewStorage = LocalStorage.getEachViewStorage();
-        var localStorageData = LocalStorage.getListOfClasses();
-
-        var arr = [],
-          arr2 = [],
+        var arr = [], arr2 = [],
           eachViewArr = [],
           containThisView = "";
 
@@ -49,14 +50,16 @@
             Model.setInputType(answer.type);
           }
         });
-        
+
         for (var key in Model.options) {
           arr.push(Model.options[key]);
         }
 
-        arr2 = arr.concat(localStorageData);
-
-        Model.options = arr2;
+        $scope.$on("addToOptions", function(param) {
+          $localStorage.addClass = param.targetScope.classNameValue
+          arr2 = arr.concat($localStorage.addClass);
+          Model.options = arr2;
+        });
       }
     };
   };

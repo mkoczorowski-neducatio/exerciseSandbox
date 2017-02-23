@@ -10,7 +10,7 @@
     var _localStorageValues = [],
         _localStorageKeys = [],
         _addedClasses = [],
-        _eachViewStorage = [];
+        _eachViewStorage = []
 
     return {
       setLocalStorageData: function(key, localStorage) {
