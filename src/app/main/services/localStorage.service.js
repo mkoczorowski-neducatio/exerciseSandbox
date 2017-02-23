@@ -36,7 +36,6 @@
 
       setEachViewStorage: function(eachView) {
         _eachViewStorage = eachView;
-        //console.log(_eachViewStorage);
       },
 
       getEachViewStorage: function() {

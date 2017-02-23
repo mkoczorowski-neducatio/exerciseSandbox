@@ -11,7 +11,6 @@
           controller: 'MainController',
           resolve: {
             ExerciseJSON: function(GetJson, $stateParams) {
-              console.log("resolving");
               return GetJson.loadJson($stateParams.id);
             }
           }
