@@ -17,15 +17,21 @@
         ExerciseModel.addItem(Model);
 
         $scope.$storage = $localStorage.$default({
-          addClass: []
+          addClass: [],
+          arr2 : [],
+          arr3: []
         });
+
+        // delete $localStorage.addClass;
+        // delete $localStorage.arr2;
+        // delete $localStorage.arr3;
 
         var storageValues = LocalStorage.getLocalStorageValues();
         var storageKeys = LocalStorage.getLocalStorageKeys();
         var eachViewStorage = LocalStorage.getEachViewStorage();
-        var arr = [], arr2 = [],
-          eachViewArr = [],
-          containThisView = "";
+        var arr = [],
+            eachViewArr = [],
+            containThisView = "";
 
         for (var key in eachViewStorage) {
           eachViewArr.push(eachViewStorage[key]);
@@ -55,10 +61,21 @@
           arr.push(Model.options[key]);
         }
 
+        if ($localStorage.arr2.length === 0) {
+          Model.options = arr;
+        } else {
+          Model.options = $localStorage.arr3;
+        }
+
         $scope.$on("addToOptions", function(param) {
           $localStorage.addClass = param.targetScope.classNameValue
-          arr2 = arr.concat($localStorage.addClass);
-          Model.options = arr2;
+          $localStorage.arr3 = arr.concat($localStorage.arr2);
+
+          if ($localStorage.arr2.indexOf($localStorage.addClass) == -1) {
+            $localStorage.arr2.push($localStorage.addClass);
+          }
+
+          Model.options = $localStorage.arr3;
         });
       }
     };
